@@ -1,0 +1,441 @@
+<style>
+    /* Variables de colores VitaMindOrgan */
+    :root {
+        --vmo-green: #70B62C;
+        --vmo-white: #FFFFFF;
+        --vmo-black: #000000;
+        --vmo-red-badge: #dc3545;
+    }
+
+    /* Barra de anuncio superior */
+    .vmo-announcement-bar {
+        background: var(--vmo-green);
+        color: var(--vmo-white);
+        text-align: center;
+        padding: 8px 20px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 50px;
+        margin: 10px auto;
+        max-width: 400px;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    /* Contenedor principal del header */
+    .vmo-header {
+        background: var(--vmo-white);
+        padding: 15px 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        margin: 10px auto;
+        max-width: 1400px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* Logo */
+    .header-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+
+    .logo-image {
+        display: block;
+        max-height: 30px;
+        height: auto;
+        width: auto;
+        max-width: 150px;
+        object-fit: contain;
+    }
+
+    .logo-text {
+        display: none;
+        /* Ocultar texto cuando hay logo */
+    }
+
+    /* Navegación */
+    .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .nav-link {
+        color: var(--vmo-black);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .nav-link:hover {
+        background: rgba(112, 182, 44, 0.1);
+        color: var(--vmo-green);
+    }
+
+    /* Dropdown para Distribuidores */
+    .nav-dropdown {
+        position: relative;
+    }
+
+    .dropdown-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .dropdown-toggle::after {
+        content: '▼';
+        font-size: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown:hover .dropdown-toggle::after {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--vmo-white);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        padding: 8px 0;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 100;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-item {
+        display: block;
+        padding: 10px 20px;
+        color: var(--vmo-black);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+        background: rgba(112, 182, 44, 0.1);
+        color: var(--vmo-green);
+    }
+
+    /* Acciones del header (carrito y usuario) */
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-shrink: 0;
+    }
+
+    .action-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--vmo-black);
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .action-btn:hover {
+        background: rgba(112, 182, 44, 0.1);
+        color: var(--vmo-green);
+    }
+
+    .cart-icon,
+    .user-icon {
+        font-size: 20px;
+    }
+
+    .cart-badge {
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        background: var(--vmo-red-badge);
+        color: white;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 10px;
+        min-width: 18px;
+        text-align: center;
+    }
+
+    /* Menú hamburguesa para móvil */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger:hover {
+        background: rgba(112, 182, 44, 0.1);
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: var(--vmo-black);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--vmo-white);
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 80px 20px 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .header-nav.active {
+            left: 0;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .nav-link {
+            width: 100%;
+        }
+
+        .dropdown-menu {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            padding-left: 15px;
+            display: none;
+        }
+
+        .nav-dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .vmo-announcement-bar {
+            font-size: 12px;
+            padding: 6px 15px;
+        }
+
+        .vmo-header {
+            padding: 12px 20px;
+        }
+
+        .logo-image {
+            max-height: 24px;
+            max-width: 120px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .vmo-announcement-bar {
+            font-size: 11px;
+            padding: 5px 10px;
+            max-width: 90%;
+        }
+
+        .vmo-header {
+            padding: 10px 15px;
+        }
+
+        .header-actions {
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
+        .cart-total {
+            display: none;
+        }
+    }
+
+    /* Overlay para menú móvil */
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .menu-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+</style>
+
+<!-- Barra de Anuncio -->
+<div class="vmo-announcement-bar">
+    Productos son solo para venta en México
+</div>
+
+<!-- Header Principal -->
+<header class="vmo-header">
+    <div class="header-content">
+        <!-- Logo -->
+        <a href="https://vitamindorgan.com" class="header-logo">
+            <img src="https://vitamindorgan.com/wp-content/uploads/2022/01/logo-vitamind-COLOR-e1710358868872.png"
+                alt="VitaMindOrgan - Psique, Cerebro & Órgano" class="logo-image" />
+        </a>
+
+        <!-- Menú Hamburguesa (Móvil) -->
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Navegación -->
+        <nav class="header-nav" id="headerNav">
+            <a href="https://vitamindorgan.com/catalogo/" class="nav-link">Catálogo</a>
+            <a href="https://vitamindorgan.com/recetas/" class="nav-link">Recetas</a>
+
+            <!-- Dropdown Distribuidores -->
+            <div class="nav-dropdown">
+                <span class="nav-link dropdown-toggle" onclick="toggleDropdown(event)">Distribuidores</span>
+                <div class="dropdown-menu">
+                    <a href="https://vitamindorgan.com/encuentra-tu-distribuidor/" class="dropdown-item">Encuentra tu
+                        distribuidor</a>
+                    <a href="https://vitamindorgan.com/se-distribuidor/" class="dropdown-item">Sé Distribuidor</a>
+                </div>
+            </div>
+
+            <a href="https://vitamindorgan.com/nosotros/" class="nav-link">¿Quiénes somos?</a>
+            <a href="https://vitamindorgan.com/blog/" class="nav-link">Blog</a>
+            <a href="https://vitamindorgan.com/libros/" class="nav-link">Libros</a>
+            <a href="https://vitamindorgan.com/contacto/" class="nav-link">Contacto</a>
+        </nav>
+
+        <!-- Acciones (Carrito y Usuario) -->
+        <div class="header-actions">
+            <!-- Carrito -->
+            <a href="https://vitamindorgan.com/carrito/" class="action-btn">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-total">$0.00</span>
+                <span class="cart-badge">0</span>
+            </a>
+
+            <!-- Acceso Distribuidores -->
+            <a href="https://distribuidores.vitamindorgan.com/" class="action-btn" target="_blank">
+                <span class="user-icon">👤</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Overlay para menú móvil -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('headerNav');
+        const hamburger = document.getElementById('hamburger');
+        const overlay = document.getElementById('menuOverlay');
+
+        nav.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+
+    function closeMenu() {
+        const nav = document.getElementById('headerNav');
+        const hamburger = document.getElementById('hamburger');
+        const overlay = document.getElementById('menuOverlay');
+
+        nav.classList.remove('active');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+
+    function toggleDropdown(event) {
+        if (window.innerWidth <= 1024) {
+            event.preventDefault();
+            const dropdown = event.target.closest('.nav-dropdown');
+            dropdown.classList.toggle('active');
+        }
+    }
+
+    // Cerrar menú al cambiar tamaño de ventana
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 1024) {
+            closeMenu();
+        }
+    });
+
+    // Cerrar menú con tecla ESC
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+</script>
