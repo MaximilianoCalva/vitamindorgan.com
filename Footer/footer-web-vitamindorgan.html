@@ -1,0 +1,310 @@
+<style>
+    /* Variables de colores VitaMindOrgan */
+    :root {
+        --vmo-green: #70B62C;
+        --vmo-dark: #1a2332;
+        --vmo-white: #FFFFFF;
+        --vmo-gray: #666666;
+        --vmo-light-gray: #f9fafb;
+    }
+
+    /* Footer principal */
+    .vmo-footer {
+        background: linear-gradient(135deg, #1a2332 0%, #2a3f5f 100%);
+        color: var(--vmo-white);
+        padding: 60px 20px 20px;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        margin-top: 80px;
+    }
+
+    .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--vmo-green);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer-section p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 15px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer-links a:hover {
+        color: var(--vmo-green);
+        transform: translateX(5px);
+    }
+
+    /* Redes sociales */
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--vmo-white);
+        text-decoration: none;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background: var(--vmo-green);
+        transform: translateY(-3px);
+    }
+
+    /* Información de contacto */
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+    }
+
+    .contact-item a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+        color: var(--vmo-green);
+    }
+
+    .contact-icon {
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        background: rgba(112, 182, 44, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    /* Footer bottom */
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .footer-brand {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--vmo-white);
+    }
+
+    .footer-brand-green {
+        color: var(--vmo-green);
+    }
+
+    .footer-tagline {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        font-style: italic;
+    }
+
+    .footer-copyright {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .vmo-footer {
+            padding: 40px 20px 20px;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .footer-section {
+            text-align: center;
+        }
+
+        .footer-links a {
+            justify-content: center;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .contact-info {
+            align-items: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-section h3 {
+            font-size: 16px;
+        }
+
+        .footer-brand {
+            font-size: 20px;
+        }
+    }
+</style>
+
+<footer class="vmo-footer">
+    <div class="footer-container">
+        <!-- Grid de secciones -->
+        <div class="footer-grid">
+            <!-- Sobre Nosotros -->
+            <div class="footer-section">
+                <h3>🤖 Sobre VitaMindOrgan</h3>
+                <p>
+                    Especialistas en suplementos naturales para la salud integral:
+                    Psique, Cerebro & Órgano. Productos 100% naturales respaldados
+                    por la experiencia de Fernando Sánchez.
+                </p>
+                <div class="social-links">
+                    <a href="https://facebook.com/vitamindorgan" class="social-link" target="_blank"
+                        title="Facebook">📘</a>
+                    <a href="https://instagram.com/vitamindorgan" class="social-link" target="_blank"
+                        title="Instagram">📷</a>
+                    <a href="https://youtube.com/vitamindorgan" class="social-link" target="_blank"
+                        title="YouTube">📺</a>
+                    <a href="https://linkedin.com/company/vitamindorgan" class="social-link" target="_blank"
+                        title="LinkedIn">💼</a>
+                    <a href="https://twitter.com/vitamindorgan" class="social-link" target="_blank"
+                        title="Twitter">🐦</a>
+                </div>
+            </div>
+
+            <!-- Enlaces Rápidos -->
+            <div class="footer-section">
+                <h3>🔗 Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="https://vitamindorgan.com/">🏠 Inicio</a></li>
+                    <li><a href="https://vitamindorgan.com/catalogo/">📦 Catálogo</a></li>
+                    <li><a href="https://vitamindorgan.com/nosotros/">👥 Nosotros</a></li>
+                    <li><a href="https://vitamindorgan.com/blog/">📝 Blog</a></li>
+                    <li><a href="https://vitamindorgan.com/libros/">📚 Libros</a></li>
+                    <li><a href="https://vitamindorgan.com/contacto/">📧 Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Distribuidores -->
+            <div class="footer-section">
+                <h3>🤝 Distribuidores</h3>
+                <ul class="footer-links">
+                    <li><a href="https://vitamindorgan.com/encuentra-tu-distribuidor/">📍 Encuentra tu distribuidor</a>
+                    </li>
+                    <li><a href="https://vitamindorgan.com/se-distribuidor/">💼 Sé Distribuidor</a></li>
+                    <li><a href="https://distribuidores.vitamindorgan.com/" target="_blank">🔐 Panel Distribuidores</a>
+                    </li>
+                    <li><a href="https://vitamindorgan.com/carrito/">🛒 Mi Carrito</a></li>
+                </ul>
+            </div>
+
+            <!-- Contacto -->
+            <div class="footer-section">
+                <h3>📞 Contacto</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <a href="mailto:contacto@vitamindorgan.com">contacto@vitamindorgan.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <a href="https://wa.me/5213334054655" target="_blank">WhatsApp: +52 1 33 3405 4655</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <span>vitamindorgan.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <span>Guadalajara, Jalisco, México</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="https://vitamindorgan.com/wp-content/uploads/2022/01/logo-vitamind-COLOR-e1710358868872.png"
+                    alt="VitaMindOrgan"
+                    style="display: block; max-height: 32px; height: auto; width: auto; max-width: 180px; margin: 0 auto 10px; filter: brightness(0) invert(1); object-fit: contain;" />
+                <div class="footer-tagline">Psique, Cerebro & Órgano</div>
+            </div>
+
+            <div class="footer-copyright">
+                <p>© 2024-2026 VitaMindOrgan. Todos los derechos reservados.</p>
+                <p style="margin-top: 5px; font-size: 11px;">
+                    Productos son solo para venta en México |
+                    <a href="https://vitamindorgan.com/terminos/"
+                        style="color: rgba(255,255,255,0.6); text-decoration: underline;">Términos y Condiciones</a> |
+                    <a href="https://vitamindorgan.com/privacidad/"
+                        style="color: rgba(255,255,255,0.6); text-decoration: underline;">Política de Privacidad</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

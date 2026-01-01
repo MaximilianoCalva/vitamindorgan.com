@@ -1,0 +1,396 @@
+<style>
+    /* Variables de colores VitaMindOrgan */
+    :root {
+        --vmo-green: #70B62C;
+        --vmo-white: #FFFFFF;
+        --vmo-black: #000000;
+        --vmo-gray: #666666;
+    }
+
+    /* Contenedor de búsqueda */
+    .vmo-search-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    /* Formulario de búsqueda */
+    .vmo-search-form {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: var(--vmo-white);
+        border: 2px solid #e5e7eb;
+        border-radius: 50px;
+        padding: 4px 8px 4px 20px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .vmo-search-form:focus-within {
+        border-color: var(--vmo-green);
+        box-shadow: 0 4px 12px rgba(112, 182, 44, 0.2);
+    }
+
+    /* Input de búsqueda */
+    .vmo-search-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 12px 15px;
+        font-size: 15px;
+        color: var(--vmo-black);
+        background: transparent;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    .vmo-search-input::placeholder {
+        color: var(--vmo-gray);
+    }
+
+    /* Botón de búsqueda */
+    .vmo-search-button {
+        background: var(--vmo-green);
+        border: none;
+        border-radius: 50px;
+        padding: 12px 24px;
+        color: var(--vmo-white);
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    .vmo-search-button:hover {
+        background: #5fa024;
+        transform: scale(1.05);
+    }
+
+    .vmo-search-button:active {
+        transform: scale(0.98);
+    }
+
+    /* Icono de búsqueda */
+    .search-icon {
+        font-size: 18px;
+    }
+
+    /* Botón de limpiar */
+    .vmo-clear-button {
+        background: none;
+        border: none;
+        color: var(--vmo-gray);
+        font-size: 20px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+    }
+
+    .vmo-clear-button:hover {
+        background: rgba(112, 182, 44, 0.1);
+        color: var(--vmo-green);
+    }
+
+    .vmo-clear-button.active {
+        display: flex;
+    }
+
+    /* Sugerencias de búsqueda */
+    .vmo-search-suggestions {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        background: var(--vmo-white);
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        max-height: 400px;
+        overflow-y: auto;
+        display: none;
+        z-index: 1000;
+    }
+
+    .vmo-search-suggestions.active {
+        display: block;
+    }
+
+    .suggestion-item {
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-bottom: 1px solid #f3f4f6;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .suggestion-item:last-child {
+        border-bottom: none;
+    }
+
+    .suggestion-item:hover {
+        background: rgba(112, 182, 44, 0.05);
+    }
+
+    .suggestion-icon {
+        font-size: 16px;
+        color: var(--vmo-green);
+    }
+
+    .suggestion-text {
+        flex: 1;
+        font-size: 14px;
+        color: var(--vmo-black);
+    }
+
+    .suggestion-category {
+        font-size: 11px;
+        color: var(--vmo-gray);
+        background: #f3f4f6;
+        padding: 2px 8px;
+        border-radius: 12px;
+    }
+
+    /* Categorías populares */
+    .popular-categories {
+        padding: 15px 20px;
+        border-bottom: 1px solid #f3f4f6;
+    }
+
+    .popular-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--vmo-gray);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .category-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .category-tag {
+        background: rgba(112, 182, 44, 0.1);
+        color: var(--vmo-green);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .category-tag:hover {
+        background: var(--vmo-green);
+        color: var(--vmo-white);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .vmo-search-container {
+            max-width: 100%;
+        }
+
+        .vmo-search-input {
+            font-size: 14px;
+            padding: 10px 12px;
+        }
+
+        .vmo-search-button {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .search-button-text {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .vmo-search-form {
+            padding: 4px 6px 4px 15px;
+        }
+
+        .vmo-search-button {
+            padding: 10px 16px;
+        }
+    }
+</style>
+
+<div class="vmo-search-container">
+    <form class="vmo-search-form" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>"
+        onsubmit="return handleSearch(event)">
+        <input type="search" class="vmo-search-input" placeholder="Buscar productos..." name="s" id="vmoSearchInput"
+            autocomplete="off" oninput="handleSearchInput(this.value)" />
+
+        <button type="button" class="vmo-clear-button" id="vmoClearButton" onclick="clearSearch()">
+            ✕
+        </button>
+
+        <button type="submit" class="vmo-search-button">
+            <span class="search-icon">🔍</span>
+            <span class="search-button-text">Buscar</span>
+        </button>
+
+        <!-- Sugerencias de búsqueda -->
+        <div class="vmo-search-suggestions" id="vmoSearchSuggestions">
+            <!-- Categorías populares -->
+            <div class="popular-categories">
+                <div class="popular-title">Categorías Populares</div>
+                <div class="category-tags">
+                    <span class="category-tag" onclick="searchCategory('Suplementos')">Suplementos</span>
+                    <span class="category-tag" onclick="searchCategory('Detox')">Detox</span>
+                    <span class="category-tag" onclick="searchCategory('Colágeno')">Colágeno</span>
+                    <span class="category-tag" onclick="searchCategory('Proteína')">Proteína</span>
+                    <span class="category-tag" onclick="searchCategory('Derma')">Productos Derma</span>
+                </div>
+            </div>
+
+            <!-- Productos sugeridos (se llenarán dinámicamente) -->
+            <div id="suggestionsList"></div>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Productos para autocompletado (puedes expandir esta lista)
+    const products = [
+        { name: 'MENOS DLOR', category: 'Suplementos', price: '$495.00' },
+        { name: 'MENOS GRAZ', category: 'Suplementos', price: '$495.00' },
+        { name: 'MENOS GASTRIT', category: 'Suplementos', price: '$349.00' },
+        { name: 'VITA Colágeno', category: 'Belleza', price: '$525.00' },
+        { name: 'VITA Colágeno Gold', category: 'Belleza', price: '$795.00' },
+        { name: 'VITA Proteína Vainilla', category: 'Nutrición', price: '$679.00' },
+        { name: 'VITA Proteína Chocolate', category: 'Nutrición', price: '$679.00' },
+        { name: 'GLUTATIÓN', category: 'Antioxidantes', price: '$649.00' },
+        { name: 'Dtox DIG-ON', category: 'Detox', price: '$328.00' },
+        { name: 'Dtox RI-ON', category: 'Detox', price: '$395.00' },
+        { name: 'Dtox hig-ON', category: 'Detox', price: '$395.00' },
+        { name: 'Derma Relax', category: 'Tópicos', price: '$240.00' },
+        { name: 'Derma Facial', category: 'Tópicos', price: '$210.00' },
+        { name: 'Vita Ajo Negro', category: 'Suplementos', price: '$390.00' },
+        { name: 'Omega 3', category: 'Suplementos', price: '$420.00' }
+    ];
+
+    let searchTimeout;
+    const searchInput = document.getElementById('vmoSearchInput');
+    const clearButton = document.getElementById('vmoClearButton');
+    const suggestions = document.getElementById('vmoSearchSuggestions');
+
+    // Manejar input de búsqueda
+    function handleSearchInput(value) {
+        // Mostrar/ocultar botón de limpiar
+        if (value.length > 0) {
+            clearButton.classList.add('active');
+        } else {
+            clearButton.classList.remove('active');
+        }
+
+        // Debounce para búsqueda
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            if (value.length >= 2) {
+                showSuggestions(value);
+            } else if (value.length === 0) {
+                suggestions.classList.add('active');
+            } else {
+                suggestions.classList.remove('active');
+            }
+        }, 300);
+    }
+
+    // Mostrar sugerencias
+    function showSuggestions(query) {
+        const filtered = products.filter(p =>
+            p.name.toLowerCase().includes(query.toLowerCase()) ||
+            p.category.toLowerCase().includes(query.toLowerCase())
+        );
+
+        const suggestionsList = document.getElementById('suggestionsList');
+
+        if (filtered.length > 0) {
+            suggestionsList.innerHTML = filtered.slice(0, 5).map(product => `
+                <div class="suggestion-item" onclick="selectProduct('${product.name}')">
+                    <span class="suggestion-icon">🔍</span>
+                    <span class="suggestion-text">${product.name}</span>
+                    <span class="suggestion-category">${product.category}</span>
+                </div>
+            `).join('');
+            suggestions.classList.add('active');
+        } else {
+            suggestionsList.innerHTML = `
+                <div class="suggestion-item">
+                    <span class="suggestion-icon">❌</span>
+                    <span class="suggestion-text">No se encontraron productos</span>
+                </div>
+            `;
+            suggestions.classList.add('active');
+        }
+    }
+
+    // Seleccionar producto
+    function selectProduct(productName) {
+        searchInput.value = productName;
+        suggestions.classList.remove('active');
+        // Enviar formulario
+        searchInput.form.submit();
+    }
+
+    // Buscar por categoría
+    function searchCategory(category) {
+        searchInput.value = category;
+        suggestions.classList.remove('active');
+        searchInput.form.submit();
+    }
+
+    // Limpiar búsqueda
+    function clearSearch() {
+        searchInput.value = '';
+        clearButton.classList.remove('active');
+        suggestions.classList.remove('active');
+        searchInput.focus();
+    }
+
+    // Manejar envío del formulario
+    function handleSearch(event) {
+        if (searchInput.value.trim() === '') {
+            event.preventDefault();
+            return false;
+        }
+        return true;
+    }
+
+    // Cerrar sugerencias al hacer clic fuera
+    document.addEventListener('click', function (event) {
+        if (!event.target.closest('.vmo-search-container')) {
+            suggestions.classList.remove('active');
+        }
+    });
+
+    // Mostrar categorías al enfocar
+    searchInput.addEventListener('focus', function () {
+        if (this.value.length === 0) {
+            suggestions.classList.add('active');
+        }
+    });
+
+    // Navegación con teclado
+    searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            suggestions.classList.remove('active');
+        }
+    });
+</script>
