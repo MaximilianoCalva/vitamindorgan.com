@@ -2,7 +2,7 @@
 
 **Sitio Web**: https://vitamindorgan.com  
 **Dashboard Distribuidores**: https://distribuidores.vitamindorgan.com  
-**Versión**: 1.0.0  
+**Versión**: 1.1.0  
 **Última actualización**: Enero 2026
 
 ---
