@@ -1,7 +1,7 @@
 # VitaMindOrgan - Tienda en Línea
 
 **Sitio Web**: https://vitamindorgan.com  
-**Dashboard Distribuidores**: https://distribuidores.vitamindorgan.com  
+**Dashboard Distribuidores**: https://distribuidores.vitamindorgan.com/user  
 **Versión**: 1.1.0  
 **Última actualización**: Enero 2026
 
@@ -294,7 +294,7 @@ Todos los componentes HTML de este proyecto están diseñados para ser implement
 
 ## 🚀 Dashboard de Distribuidores
 
-**URL**: https://distribuidores.vitamindorgan.com
+**URL**: https://distribuidores.vitamindorgan.com/user
 
 ### Funcionalidades Sugeridas:
 1. Catálogo completo con precios especiales
@@ -339,7 +339,7 @@ Todos los componentes HTML de este proyecto están diseñados para ser implement
 **Dirección**: C. La Cauda 765, Jardines del Bosque, 44520
 
 **Sitio Web**: https://vitamindorgan.com  
-**Dashboard**: https://distribuidores.vitamindorgan.com
+**Dashboard**: https://distribuidores.vitamindorgan.com/user
 
 ---
 
