@@ -68,3 +68,7 @@ wp-content/backup/
 *.p12
 credentials.json
 secrets.json
+*.crt
+config.js
+secrets.js
+private_key

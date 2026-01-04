@@ -230,6 +230,28 @@
         transform: rotate(-45deg) translate(7px, -7px);
     }
 
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* WhatsApp Highlight */
+    .whatsapp-highlight {
+        color: #25D366 !important;
+        border: 1px solid #25D366;
+        border-radius: 50px;
+        padding: 5px 15px !important;
+        display: inline-flex;
+        align-items: center;
+        background: rgba(37, 211, 102, 0.05);
+    }
+
+    .whatsapp-highlight:hover {
+        background: rgba(37, 211, 102, 0.15) !important;
+        color: #25D366 !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
         .header-nav {
@@ -299,6 +321,12 @@
 
         .vmo-header {
             padding: 10px 15px;
+        }
+
+        .whatsapp-highlight {
+            width: auto;
+            align-self: flex-start;
+            margin-top: 5px;
         }
 
         .header-actions {
@@ -378,6 +406,14 @@
             <a href="https://vitamindorgan.com/blog/" class="nav-link">Blog</a>
             <a href="https://vitamindorgan.com/libros/" class="nav-link">Libros</a>
             <a href="https://vitamindorgan.com/contacto/" class="nav-link">Contacto</a>
+            <a href="https://whatsapp.com/channel/0029VbBuM0a1noz8RWYpbr2L" class="nav-link whatsapp-highlight"
+                target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 4px;">
+                    <path
+                        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.698c1.005.572 1.913.846 2.803.846h.001c3.181 0 5.768-2.586 5.768-5.766-.001-3.18-2.587-5.767-5.766-5.767zm6.768 5.767c0 v3.67c0 .487-.392.883-.883.883h-1.766c-.491 0-.883-.396-.883-.883v-1.766c0-.487-.392-.883-.883-.883h-3.67c-.491 0-.883.396-.883.883v1.766c0 .487-.392.883-.883.883h-1.766c-.491 0-.883-.396-.883-.883v-3.67c0-.487.392-.883.883-.883h1.766c.491 0 .883.396.883.883v1.766c0 .487.392.883.883.883h3.67c.487 0 .883-.396.883-.883v-1.766c0-.487.392-.883.883-.883h1.766c.491 0 .883.396.883.883z" />
+                </svg>
+                Comunidad
+            </a>
         </nav>
 
         <!-- Acciones (Carrito y Usuario) -->

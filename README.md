@@ -341,6 +341,14 @@ Todos los componentes HTML de este proyecto están diseñados para ser implement
 **Sitio Web**: https://vitamindorgan.com  
 **Dashboard**: https://distribuidores.vitamindorgan.com/user
 
+### Redes Sociales Oficiales
+- **Facebook**: [VitaMindOrgan](https://facebook.com/100774609106432)
+- **Instagram**: [@vitamindorgan](https://instagram.com/vitamindorgan)
+- **TikTok**: [@vitamindorgan](https://www.tiktok.com/@vitamindorgan)
+- **YouTube**: [VitaMindOrgan](https://www.youtube.com/channel/UCLO8dQvXFiDMUbFD-v_upqA)
+- **WhatsApp Ventas:** +52 1 33 3405 4655
+- **Canal WhatsApp**: [Unirse](https://whatsapp.com/channel/0029VbBuM0a1noz8RWYpbr2L)
+
 ---
 
 ## 📝 Notas de Desarrollo
