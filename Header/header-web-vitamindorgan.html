@@ -8,18 +8,7 @@
     }
 
     /* Barra de anuncio superior */
-    .vmo-announcement-bar {
-        background: var(--vmo-green);
-        color: var(--vmo-white);
-        text-align: center;
-        padding: 8px 20px;
-        font-size: 13px;
-        font-weight: 600;
-        border-radius: 50px;
-        margin: 10px auto;
-        max-width: 400px;
-        font-family: 'Segoe UI', Tahoma, sans-serif;
-    }
+
 
     /* Contenedor principal del header */
     .vmo-header {
@@ -62,6 +51,17 @@
     .logo-text {
         display: none;
         /* Ocultar texto cuando hay logo */
+    }
+
+    .vmo-inline-badge {
+        background: rgba(112, 182, 44, 0.1);
+        color: var(--vmo-green);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 5px 15px;
+        border-radius: 20px;
+        white-space: nowrap;
+        border: 1px solid rgba(112, 182, 44, 0.2);
     }
 
     /* Navegación */
@@ -274,9 +274,12 @@
             display: block;
         }
 
-        .vmo-announcement-bar {
-            font-size: 12px;
-            padding: 6px 15px;
+        .nav-dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .vmo-inline-badge {
+            display: none;
         }
 
         .vmo-header {
@@ -290,10 +293,8 @@
     }
 
     @media (max-width: 480px) {
-        .vmo-announcement-bar {
-            font-size: 11px;
-            padding: 5px 10px;
-            max-width: 90%;
+        .vmo-header {
+            padding: 10px 15px;
         }
 
         .vmo-header {
@@ -335,9 +336,7 @@
 </style>
 
 <!-- Barra de Anuncio -->
-<div class="vmo-announcement-bar">
-    Productos son solo para venta en México
-</div>
+
 
 <!-- Header Principal -->
 <header class="vmo-header">
@@ -347,6 +346,11 @@
             <img src="https://vitamindorgan.com/wp-content/uploads/2022/01/logo-vitamind-COLOR-e1710358868872.png"
                 alt="VitaMindOrgan - Psique, Cerebro & Órgano" class="logo-image" />
         </a>
+
+        <!-- Badge Inline -->
+        <div class="vmo-inline-badge">
+            Productos son solo para venta en México
+        </div>
 
         <!-- Menú Hamburguesa (Móvil) -->
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">

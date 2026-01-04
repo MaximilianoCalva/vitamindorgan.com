@@ -5,6 +5,10 @@
 **Versión**: 1.1.0  
 **Última actualización**: Enero 2026
 
+## SEO y Metadata
+**Título del Sitio:** VitaMindOrgan - Tienda Oficial | Psique, Cerebro & Órgano
+**Descripción Corta:** Tienda en línea de suplementos naturales y libros de Biodesprogramación de Fernando Sánchez. Envíos a todo México. Salud integral para cuerpo y mente.
+
 ---
 
 ## 📋 Descripción
