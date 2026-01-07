@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vita Colágeno Gold</title>
+    <style>
+        :root {
+            --brand-color: #2CAC64; /* Adjust based on brand */
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-light); margin: 0; padding: 20px; }
+        .product-card {
+            background: white;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+        .product-image {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+        }
+        .product-details {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 1.5rem;
+            color: var(--brand-color);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .product-description {
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        .btn-buy {
+            background: var(--brand-color);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.2s;
+            align-self: flex-start;
+        }
+        .btn-buy:hover { background: #259656; }
+        
+        .btn-secondary {
+            display: block;
+            margin-top: 10px;
+            color: #777;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .btn-secondary:hover { text-decoration: underline; }
+        
+        @media (max-width: 768px) {
+            .product-card { grid-template-columns: 1fr; }
+            .product-image { padding: 20px; }
+            .product-details { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product-card">
+        <div class="product-image">
+            <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaColageno-GOLD.png" alt="Vita Colágeno Gold">
+        </div>
+        <div class="product-details">
+            <h1 class="product-title">Vita Colágeno Gold</h1>
+            <div class="product-price">$795 MXN</div>
+            <div class="product-description">
+                
+            </div>
+            <!-- Add to Cart Link (WooCommerce Standard) -->
+            <a href="https://vitamindorgan.com/?add-to-cart=7189" class="btn-buy">Añadir al Carrito 🛒</a>
+            <a href="https://vitamindorgan.com/producto/vita-colagenogold/" target="_blank" class="btn-secondary">Ver detalles del producto &rarr;</a>
+        </div>
+    </div>
+
+</body>
+</html>

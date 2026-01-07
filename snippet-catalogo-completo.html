@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo VitamindOrgan</title>
+    <style>
+        :root {
+            --brand-color: #2CAC64;
+            --brand-dark: #218c50;
+            --text-dark: #333;
+            --bg-light: #f4f6f8;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Reset for embedding */
+
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--bg-light);
+        }
+
+        .catalog-title {
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 250px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            position: relative;
+        }
+
+        .card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            min-height: 2.6em;
+            /* Ensure alignment */
+            line-height: 1.3;
+        }
+
+        .card-price {
+            font-size: 1.25rem;
+            color: var(--brand-color);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-add-cart {
+            background: var(--brand-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--brand-dark);
+        }
+
+        .btn-details {
+            color: #666;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 5px;
+        }
+
+        .btn-details:hover {
+            text-decoration: underline;
+            color: #333;
+        }
+
+        /* Stock Badge if needed */
+        .out-of-stock {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff4444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="catalog-container">
+        <h1 class="catalog-title">Nuestros Productos</h1>
+        <div class="product-grid">
+            <!-- Card: Biodesprogramación del Árbol Transgeneracional + Diario del Árbol Transgeneracional – Libro Fernando Sánchez -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2025/03/LOSDOSLIBROS.jpg"
+                        alt="Biodesprogramación del Árbol Transgeneracional + Diario del Árbol Transgeneracional – Libro Fernando Sánchez">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Biodesprogramación del Árbol Transgeneracional + Diario del Árbol
+                        Transgeneracional – Libro Fernando Sánchez</div>
+                    <div class="card-price">$1000 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=10283" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/biodesprogramacion-del-arbol-transgeneracional-diario-del-arbol-transgeneracional-libro-fernando-sanchez/"
+                            target="_blank" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Diario del Árbol Transgeneracional - Libro Fernando Sánchez -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-31-at-2.41.43-PM.jpeg"
+                        alt="Diario del Árbol Transgeneracional - Libro Fernando Sánchez">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Diario del Árbol Transgeneracional - Libro Fernando Sánchez</div>
+                    <div class="card-price">$600 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=10264" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/diario-del-arbol-transgeneracional-libro-fernando-sanchez/"
+                            target="_blank" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Biodesprogramación del Árbol Transgeneracional - Libro Fernando Sánchez -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-02-24-at-2.06.51-PM.jpeg"
+                        alt="Biodesprogramación del Árbol Transgeneracional - Libro Fernando Sánchez">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Biodesprogramación del Árbol Transgeneracional - Libro Fernando Sánchez
+                    </div>
+                    <div class="card-price">$600 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=10265" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/biodesprogramacion-del-arbol-transgeneracional-libro-fernando-sanchez/"
+                            target="_blank" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: GLUK0 -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2025/01/gluk0.png" alt="GLUK0">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">GLUK0</div>
+                    <div class="card-price">$495 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=10146" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/gluk0/" target="_blank" class="btn-details">Ver
+                            Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Dtox HIG-ON -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2025/01/hig-on-1.png" alt="Dtox HIG-ON">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Dtox HIG-ON</div>
+                    <div class="card-price">$395 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=10059" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/dtox-hig-on/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita OMEGA 3 -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/omega-3.png" alt="Vita OMEGA 3">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita OMEGA 3</div>
+                    <div class="card-price">$420 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9788" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-omega-3/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita L-CARNITINA -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/l-carnitina.png"
+                        alt="Vita L-CARNITINA">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita L-CARNITINA</div>
+                    <div class="card-price">$460 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9787" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-l-carnitina/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Circulatión -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/circulation.png"
+                        alt="Vita Circulatión">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Circulatión</div>
+                    <div class="card-price">$420 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9786" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-circulation/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Activ-ON -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/activ-on.png" alt="Vita Activ-ON">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Activ-ON</div>
+                    <div class="card-price">$495 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9785" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-activ-on/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Dtox DIG-ON -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/DIG-ON.png" alt="Dtox DIG-ON">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Dtox DIG-ON</div>
+                    <div class="card-price">$328 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9789" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/dtox-dig-on/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Glutatión -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/galutation.png" alt="Vita Glutatión">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Glutatión</div>
+                    <div class="card-price">$649 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9790" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-glutation/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Dtox RI-ON -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/ri-on.png" alt="Dtox RI-ON">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Dtox RI-ON</div>
+                    <div class="card-price">$395 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9791" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/dtox-ri-on/" target="_blank" class="btn-details">Ver
+                            Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Café Termogénico Negro sobre -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/05/Cafe-Termogenico-bolsa.png"
+                        alt="Vita Café Termogénico Negro sobre">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Café Termogénico Negro sobre</div>
+                    <div class="card-price">$399 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9363" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-cafe-negro-termogenico/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vitacitrato -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/02/Citrato-de-magnesio.png"
+                        alt="Vitacitrato">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vitacitrato</div>
+                    <div class="card-price">$385 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=8838" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vitacitrato/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Derma Árnica -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/10/Arnica.png" alt="Derma Árnica">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Derma Árnica</div>
+                    <div class="card-price">$195 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=8270" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/derma-arnica/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Biodesprogramación fundamentos y aportaciones - Libro Fernando Sánchez -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/Biodesprogramacion-Fundamentos-Y-Aportaciones.png"
+                        alt="Biodesprogramación fundamentos y aportaciones - Libro Fernando Sánchez">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Biodesprogramación fundamentos y aportaciones - Libro Fernando Sánchez</div>
+                    <div class="card-price">$500 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=7661" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/biodesprogramacion-fundamentos-y-aportaciones-libro-fernando-sanchez/"
+                            target="_blank" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Colágeno Gold -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaColageno-GOLD.png"
+                        alt="Vita Colágeno Gold">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Colágeno Gold</div>
+                    <div class="card-price">$795 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=7189" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-colagenogold/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Multiv -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaMulti.png" alt="Vita Multiv">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Multiv</div>
+                    <div class="card-price">$360 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=7187" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-multiv/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Jugo verde -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaJugoVerde.png"
+                        alt="Vita Jugo verde">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Jugo verde</div>
+                    <div class="card-price">$360 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=7185" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-jugoverde/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Derma Relax -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaDermaRelax.png"
+                        alt="Derma Relax">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Derma Relax</div>
+                    <div class="card-price">$240 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=7183" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/derma-relax/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Calcio -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaCalcio.png" alt="Vita Calcio">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Calcio</div>
+                    <div class="card-price">$290 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=7177" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-calcio/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Café Termogenico bote -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaCafe.png"
+                        alt="Vita Café Termogenico bote">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Café Termogenico bote</div>
+                    <div class="card-price">$509 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=7175" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-cafe/" target="_blank" class="btn-details">Ver
+                            Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Vita Flora -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/03/VitaFlora.png" alt="Vita Flora">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Vita Flora</div>
+                    <div class="card-price">$430 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=6966" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vitaflora/" target="_blank" class="btn-details">Ver
+                            Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Mente Pro - Libro Fernando Sánchez -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/04/MOCKUP-LIBRO.png"
+                        alt="Mente Pro - Libro Fernando Sánchez">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Mente Pro - Libro Fernando Sánchez</div>
+                    <div class="card-price">$400 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=5890" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/mente-pro-libro-fernando-sanchez/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: VITA RelajaTÉ -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/05/Te-Vita-Nuevo-empaque.png"
+                        alt="VITA RelajaTÉ">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">VITA RelajaTÉ</div>
+                    <div class="card-price">$399 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=5093" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vita-relajante/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: VITA Colágeno -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2022/09/VitaColageno2.0.png"
+                        alt="VITA Colágeno">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">VITA Colágeno</div>
+                    <div class="card-price">$525 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=4386" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/vitacolageno/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: GLUTATIÓN -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/05/galutation.png" alt="GLUTATIÓN">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">GLUTATIÓN</div>
+                    <div class="card-price">$649.00 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=2055" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/glutation/" target="_blank" class="btn-details">Ver
+                            Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: MENOS GASTRIT -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/05/MenosGastrit.png"
+                        alt="MENOS GASTRIT">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">MENOS GASTRIT</div>
+                    <div class="card-price">$349.00 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=2057" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/menos-gastrit/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: MENOS GRAZ -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/05/MenosGraz.png" alt="MENOS GRAZ">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">MENOS GRAZ</div>
+                    <div class="card-price">$495.00 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=194" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/menos-graz/" target="_blank" class="btn-details">Ver
+                            Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: MENOS DLOR -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/05/MenosDlor.png" alt="MENOS DLOR">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">MENOS DLOR</div>
+                    <div class="card-price">$495.00 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=188" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/menos-dlor/" target="_blank" class="btn-details">Ver
+                            Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
