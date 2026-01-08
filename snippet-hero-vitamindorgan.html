@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero VitamindOrgan</title>
+    <style>
+        /* Scoped Variables - prefixed to avoid global pollution */
+        .v-hero-wrapper {
+            --v-brand-primary: #2CAC64;
+            --v-brand-dark: #1e8e4e;
+            --v-brand-accent: #d4f5e0;
+            --v-text-dark: #1a1a1a;
+            --v-text-light: #555;
+            --v-white: #ffffff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Reset for internal elements */
+        .v-hero-wrapper * {
+            box-sizing: border-box;
+        }
+
+        .v-hero-section {
+            background: linear-gradient(135deg, #f8fffb 0%, #e8f7ee 100%);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+            border-radius: 0 0 30px 30px;
+        }
+
+        /* Decorative Background Elements */
+        .v-hero-bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--v-brand-primary);
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .v-circle-1 {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            right: -100px;
+        }
+
+        .v-circle-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .v-hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+            align-items: center;
+        }
+
+        /* Text Content */
+        .v-hero-content {
+            padding-right: 20px;
+            animation: vSlideUp 0.8s ease-out;
+            text-align: left;
+            /* Ensure alignment */
+        }
+
+        .v-hero-tagline {
+            display: inline-block;
+            background: var(--v-brand-accent);
+            color: var(--v-brand-dark);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .v-hero-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            color: var(--v-text-dark);
+            margin: 0 0 25px 0;
+        }
+
+        .v-hero-title span {
+            color: var(--v-brand-primary);
+        }
+
+        .v-hero-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--v-text-light);
+            margin: 0 0 40px 0;
+            max-width: 500px;
+        }
+
+        /* CTAs */
+        .v-hero-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .v-btn-primary {
+            background: var(--v-brand-primary);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(44, 172, 100, 0.25);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            line-height: 1;
+        }
+
+        .v-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(44, 172, 100, 0.35);
+            background: var(--v-brand-dark);
+        }
+
+        .v-btn-secondary {
+            background: white;
+            color: var(--v-brand-primary);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            line-height: 1;
+        }
+
+        .v-btn-secondary:hover {
+            border-color: var(--v-brand-primary);
+            color: var(--v-brand-dark);
+        }
+
+        /* Image Composition */
+        .v-hero-visuals {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+            animation: vFadeIn 1.2s ease-out;
+        }
+
+        .v-hero-image {
+            position: absolute;
+            transition: transform 0.5s ease;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Main Image */
+        .v-img-main {
+            z-index: 2;
+            width: 320px;
+            animation: vFloatMain 6s ease-in-out infinite;
+            max-width: 100%;
+        }
+
+        /* Secondary Images */
+        .v-img-sec-1 {
+            z-index: 1;
+            width: 220px;
+            right: 20px;
+            top: 40px;
+            transform: rotate(10deg);
+            animation: vFloatSec1 7s ease-in-out infinite 1s;
+        }
+
+        .v-img-sec-2 {
+            z-index: 3;
+            width: 180px;
+            left: 0;
+            bottom: 60px;
+            transform: rotate(-10deg);
+            animation: vFloatSec2 5s ease-in-out infinite 0.5s;
+        }
+
+        /* Animations prefixed */
+        @keyframes vSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes vFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes vFloatMain {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes vFloatSec1 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(10deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(12deg);
+            }
+        }
+
+        @keyframes vFloatSec2 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-10deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(-8deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .v-hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 60px;
+            }
+
+            .v-hero-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .v-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .v-hero-description {
+                margin: 0 auto 30px auto;
+            }
+
+            .v-hero-actions {
+                justify-content: center;
+            }
+
+            .v-hero-visuals {
+                height: 400px;
+            }
+
+            .v-img-main {
+                width: 220px;
+            }
+
+            .v-img-sec-1 {
+                width: 160px;
+                right: 10%;
+                top: 20px;
+            }
+
+            .v-img-sec-2 {
+                width: 140px;
+                left: 10%;
+                bottom: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Wrapper for Scoping -->
+    <div class="v-hero-wrapper">
+        <section class="v-hero-section">
+            <!-- Background Elements -->
+            <div class="v-hero-bg-circle v-circle-1"></div>
+            <div class="v-hero-bg-circle v-circle-2"></div>
+
+            <div class="v-hero-container">
+                <!-- Text Side -->
+                <div class="v-hero-content">
+                    <span class="v-hero-tagline">🌿 Bienestar Integral y Natural</span>
+                    <h1 class="v-hero-title">Tu Salud, Tu <br><span>Mejor Inversión</span></h1>
+                    <p class="v-hero-description">Descubre nuestra línea exclusiva de suplementos naturales, productos
+                        de
+                        cuidado personal y libros especializados del Instituto Fernando Sánchez.</p>
+
+                    <div class="v-hero-actions">
+                        <a href="https://vitamindorgan.com/catalogo/" class="v-btn-primary">
+                            Explorar Catálogo 🛍️
+                        </a>
+                        <a href="https://vitamindorgan.com/libros/" class="v-btn-secondary">
+                            Ver Libros 📚
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Composition Side -->
+                <div class="v-hero-visuals">
+                    <!-- VITA Colágeno Gold (Main) -->
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaColageno-GOLD.png"
+                        alt="Vita Colágeno Gold" class="v-hero-image v-img-main">
+
+                    <!-- Menos Graz (Secondary Right) -->
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/05/MenosGraz.png" alt="Menos Graz"
+                        class="v-hero-image v-img-sec-1">
+
+                    <!-- Vita Cafe (Secondary Left) -->
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/VitaCafe.png"
+                        alt="Vita Café Termogénico" class="v-hero-image v-img-sec-2">
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

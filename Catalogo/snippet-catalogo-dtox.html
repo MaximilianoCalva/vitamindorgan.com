@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Línea Detox</title>
+    <style>
+        :root {
+            --brand-color: #2CAC64;
+            --brand-dark: #218c50;
+            --text-dark: #333;
+            --bg-light: #f4f6f8;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: transparent;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .catalog-title {
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 250px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            position: relative;
+            border-bottom: 1px solid #f9f9f9;
+        }
+
+        .card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            min-height: 2.6em;
+            /* Ensure alignment */
+            line-height: 1.3;
+        }
+
+        .card-price {
+            font-size: 1.25rem;
+            color: var(--brand-color);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-add-cart {
+            background: linear-gradient(135deg, #2CAC64 0%, #1e8e4e 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 700;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(44, 172, 100, 0.2);
+        }
+
+        .btn-add-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(44, 172, 100, 0.3);
+        }
+
+        .btn-details {
+            color: #666;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 5px;
+        }
+
+        .btn-details:hover {
+            text-decoration: underline;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="catalog-container">
+        <h1 class="catalog-title">Línea Detox</h1>
+        <div class="product-grid">
+            <!-- Card: Dtox HIG-ON -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2025/01/hig-on-1.png" alt="Dtox HIG-ON">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Dtox HIG-ON</div>
+                    <div class="card-price">$395.00 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=10059" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/dtox-hig-on/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Dtox DIG-ON -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/DIG-ON.png" alt="Dtox DIG-ON">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Dtox DIG-ON</div>
+                    <div class="card-price">$328.00 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9789" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/dtox-dig-on/" target="_blank"
+                            class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card: Dtox RI-ON -->
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://vitamindorgan.com/wp-content/uploads/2024/10/ri-on.png" alt="Dtox RI-ON">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Dtox RI-ON</div>
+                    <div class="card-price">$395.00 MXN</div>
+                    <div class="card-actions">
+                        <a href="https://vitamindorgan.com/?add-to-cart=9791" class="btn-add-cart">Añadir al Carrito
+                            🛒</a>
+                        <a href="https://vitamindorgan.com/producto/dtox-ri-on/" target="_blank" class="btn-details">Ver
+                            Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

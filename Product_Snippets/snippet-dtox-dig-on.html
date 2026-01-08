@@ -6,84 +6,134 @@
     <title>Dtox DIG-ON</title>
     <style>
         :root {
-            --brand-color: #2CAC64; /* Adjust based on brand */
+            --brand-color: #2CAC64; 
             --text-dark: #333;
-            --text-light: #666;
+            --text-light: #555;
             --bg-light: #f9f9f9;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-light); margin: 0; padding: 20px; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: transparent; margin: 0; padding: 0; } /* Transparent BG for embedding */
+        
         .product-card {
             background: white;
             max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin: 20px auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             overflow: hidden;
+            border: 1px solid #f0f0f0;
         }
+        
+        /* Image Section */
         .product-image {
             background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 40px;
+            position: relative;
+        }
+        .product-image::after {
+            content: ''; position: absolute; top:0; right:0; width: 1px; height: 100%; background: #f0f0f0;
         }
         .product-image img {
             max-width: 100%;
             height: auto;
-            max-height: 500px;
+            max-height: 400px;
             object-fit: contain;
+            transition: transform 0.3s;
         }
+        .product-image img:hover { transform: scale(1.05); }
+        
+        /* Details Section */
         .product-details {
             padding: 40px;
             display: flex;
             flex-direction: column;
         }
+        
         .product-title {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
         }
+        
         .product-price {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--brand-color);
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Information Tabs / Sections */
+        .info-box {
+            background: #fcfcfc;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
         }
         .product-description {
             line-height: 1.6;
             color: var(--text-light);
-            margin-bottom: 30px;
+            font-size: 1rem;
         }
+        .product-description h5, .product-description h6 { color: var(--text-dark); margin-top: 0; }
+        .product-description ul { padding-left: 20px; margin-bottom: 0; }
+        .product-description li { margin-bottom: 5px; }
+        
+        /* Actions */
+        .action-group {
+            margin-top: auto;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
         .btn-buy {
-            background: var(--brand-color);
+            background: linear-gradient(135deg, #2CAC64 0%, #1e8e4e 100%);
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 16px 35px;
+            border-radius: 50px;
             text-align: center;
-            font-weight: 600;
-            display: inline-block;
-            transition: background 0.2s;
-            align-self: flex-start;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(44, 172, 100, 0.3);
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
-        .btn-buy:hover { background: #259656; }
+        .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(44, 172, 100, 0.4); }
         
         .btn-secondary {
-            display: block;
-            margin-top: 10px;
-            color: #777;
+            background: white;
+            color: #555;
+            border: 1px solid #ddd;
+            padding: 15px 25px;
+            border-radius: 50px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
         }
-        .btn-secondary:hover { text-decoration: underline; }
+        .btn-secondary:hover { border-color: #333; color: #333; background: #f9f9f9; }
         
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .product-card { grid-template-columns: 1fr; }
-            .product-image { padding: 20px; }
-            .product-details { padding: 20px; }
+            .product-image::after { display: none; }
+            .product-image { padding: 20px; border-bottom: 1px solid #f0f0f0; }
+            .product-details { padding: 25px; }
+            .product-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -95,13 +145,20 @@
         </div>
         <div class="product-details">
             <h1 class="product-title">Dtox DIG-ON</h1>
-            <div class="product-price">$328 MXN</div>
-            <div class="product-description">
-                
+            <div class="product-price">$328.00 MXN</div>
+            
+            <div class="info-box">
+                <div class="product-description">
+                    <p>Descubre los beneficios de este producto en nuestra web oficial. Calidad VitamindOrgan garantizada.</p>
+                </div>
             </div>
-            <!-- Add to Cart Link (WooCommerce Standard) -->
-            <a href="https://vitamindorgan.com/?add-to-cart=9789" class="btn-buy">Añadir al Carrito 🛒</a>
-            <a href="https://vitamindorgan.com/producto/dtox-dig-on/" target="_blank" class="btn-secondary">Ver detalles del producto &rarr;</a>
+            
+            <div class="action-group">
+                <a href="https://vitamindorgan.com/?add-to-cart=9789" class="btn-buy">
+                    <span>🛒 Añadir al Carrito</span>
+                </a>
+                <a href="https://vitamindorgan.com/producto/dtox-dig-on/" target="_blank" class="btn-secondary">Más Información ℹ️</a>
+            </div>
         </div>
     </div>
 

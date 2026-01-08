@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros VitamindOrgan</title>
+    <style>
+        /* Scoped Catalog CSS */
+        .v-catalog-wrapper {
+            --v-cat-brand: #2CAC64;
+            --v-cat-dark: #218c50;
+            --v-cat-text: #333;
+            --v-cat-bg: #f4f6f8;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            width: 100%;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background: transparent;
+        }
+        
+        .v-catalog-wrapper * { box-sizing: border-box; }
+        
+        .v-catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .v-catalog-title {
+            text-align: center;
+            color: var(--v-cat-text);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .v-product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .v-product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+        
+        .v-product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .v-card-image {
+            height: 250px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            position: relative;
+            border-bottom: 1px solid #f9f9f9;
+        }
+        
+        .v-card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .v-card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .v-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--v-cat-text);
+            margin-bottom: 10px;
+            min-height: 2.6em; /* Ensure alignment */
+            line-height: 1.3;
+        }
+
+        .v-card-price {
+            font-size: 1.25rem;
+            color: var(--v-cat-brand);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .v-card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .v-btn-add-cart {
+            background: linear-gradient(135deg, #2CAC64 0%, #1e8e4e 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 700;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(44, 172, 100, 0.2);
+            border: none;
+        }
+        .v-btn-add-cart:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(44, 172, 100, 0.3); }
+
+        .v-btn-details {
+            color: #666;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 5px;
+        }
+        .v-btn-details:hover { text-decoration: underline; color: #333; }
+        
+    </style>
+</head>
+<body>
+
+<div class="v-catalog-wrapper">
+    <div class="v-catalog-container">
+        <h1 class="v-catalog-title">Libros y Material Educativo</h1>
+        <div class="v-product-grid">
+        <!-- Card: Biodesprogramación del Árbol Transgeneracional + Diario del Árbol Transgeneracional – Libro Fernando Sánchez -->
+        <div class="v-product-card">
+            <div class="v-card-image">
+                <img src="https://vitamindorgan.com/wp-content/uploads/2025/03/LOSDOSLIBROS.jpg" alt="Biodesprogramación del Árbol Transgeneracional + Diario del Árbol Transgeneracional – Libro Fernando Sánchez">
+            </div>
+            <div class="v-card-body">
+                <div class="v-card-title">Biodesprogramación del Árbol Transgeneracional + Diario del Árbol Transgeneracional – Libro Fernando Sánchez</div>
+                <div class="v-card-price">$1,000.00 MXN</div>
+                <div class="v-card-actions">
+                    <a href="https://vitamindorgan.com/?add-to-cart=10283" class="v-btn-add-cart">Añadir al Carrito 🛒</a>
+                    <a href="https://vitamindorgan.com/producto/biodesprogramacion-del-arbol-transgeneracional-diario-del-arbol-transgeneracional-libro-fernando-sanchez/" target="_blank" class="v-btn-details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card: Diario del Árbol Transgeneracional - Libro Fernando Sánchez -->
+        <div class="v-product-card">
+            <div class="v-card-image">
+                <img src="https://vitamindorgan.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-31-at-2.41.43-PM.jpeg" alt="Diario del Árbol Transgeneracional - Libro Fernando Sánchez">
+            </div>
+            <div class="v-card-body">
+                <div class="v-card-title">Diario del Árbol Transgeneracional - Libro Fernando Sánchez</div>
+                <div class="v-card-price">$600.00 MXN</div>
+                <div class="v-card-actions">
+                    <a href="https://vitamindorgan.com/?add-to-cart=10264" class="v-btn-add-cart">Añadir al Carrito 🛒</a>
+                    <a href="https://vitamindorgan.com/producto/diario-del-arbol-transgeneracional-libro-fernando-sanchez/" target="_blank" class="v-btn-details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card: Biodesprogramación del Árbol Transgeneracional - Libro Fernando Sánchez -->
+        <div class="v-product-card">
+            <div class="v-card-image">
+                <img src="https://vitamindorgan.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-02-24-at-2.06.51-PM.jpeg" alt="Biodesprogramación del Árbol Transgeneracional - Libro Fernando Sánchez">
+            </div>
+            <div class="v-card-body">
+                <div class="v-card-title">Biodesprogramación del Árbol Transgeneracional - Libro Fernando Sánchez</div>
+                <div class="v-card-price">$600.00 MXN</div>
+                <div class="v-card-actions">
+                    <a href="https://vitamindorgan.com/?add-to-cart=10265" class="v-btn-add-cart">Añadir al Carrito 🛒</a>
+                    <a href="https://vitamindorgan.com/producto/biodesprogramacion-del-arbol-transgeneracional-libro-fernando-sanchez/" target="_blank" class="v-btn-details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card: Biodesprogramación fundamentos y aportaciones - Libro Fernando Sánchez -->
+        <div class="v-product-card">
+            <div class="v-card-image">
+                <img src="https://vitamindorgan.com/wp-content/uploads/2023/07/Biodesprogramacion-Fundamentos-Y-Aportaciones.png" alt="Biodesprogramación fundamentos y aportaciones - Libro Fernando Sánchez">
+            </div>
+            <div class="v-card-body">
+                <div class="v-card-title">Biodesprogramación fundamentos y aportaciones - Libro Fernando Sánchez</div>
+                <div class="v-card-price">$500.00 MXN</div>
+                <div class="v-card-actions">
+                    <a href="https://vitamindorgan.com/?add-to-cart=7661" class="v-btn-add-cart">Añadir al Carrito 🛒</a>
+                    <a href="https://vitamindorgan.com/producto/biodesprogramacion-fundamentos-y-aportaciones-libro-fernando-sanchez/" target="_blank" class="v-btn-details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card: Mente Pro - Libro Fernando Sánchez -->
+        <div class="v-product-card">
+            <div class="v-card-image">
+                <img src="https://vitamindorgan.com/wp-content/uploads/2023/04/MOCKUP-LIBRO.png" alt="Mente Pro - Libro Fernando Sánchez">
+            </div>
+            <div class="v-card-body">
+                <div class="v-card-title">Mente Pro - Libro Fernando Sánchez</div>
+                <div class="v-card-price">$400.00 MXN</div>
+                <div class="v-card-actions">
+                    <a href="https://vitamindorgan.com/?add-to-cart=5890" class="v-btn-add-cart">Añadir al Carrito 🛒</a>
+                    <a href="https://vitamindorgan.com/producto/mente-pro-libro-fernando-sanchez/" target="_blank" class="v-btn-details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
