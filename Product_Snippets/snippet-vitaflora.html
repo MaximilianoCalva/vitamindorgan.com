@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vita Flora</title>
     <style>
         :root {
-            --brand-color: #2CAC64; 
+            --brand-color: #2CAC64;
             --text-dark: #333;
             --text-light: #555;
             --bg-light: #f9f9f9;
         }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: transparent; margin: 0; padding: 0; } /* Transparent BG for embedding */
-        
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: transparent;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Transparent BG for embedding */
+
         .product-card {
             background: white;
             max-width: 1000px;
             margin: 20px auto;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             overflow: hidden;
             border: 1px solid #f0f0f0;
         }
-        
+
         /* Image Section */
         .product-image {
             background: #fff;
@@ -34,9 +43,17 @@
             padding: 40px;
             position: relative;
         }
+
         .product-image::after {
-            content: ''; position: absolute; top:0; right:0; width: 1px; height: 100%; background: #f0f0f0;
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 100%;
+            background: #f0f0f0;
         }
+
         .product-image img {
             max-width: 100%;
             height: auto;
@@ -44,15 +61,18 @@
             object-fit: contain;
             transition: transform 0.3s;
         }
-        .product-image img:hover { transform: scale(1.05); }
-        
+
+        .product-image img:hover {
+            transform: scale(1.05);
+        }
+
         /* Details Section */
         .product-details {
             padding: 40px;
             display: flex;
             flex-direction: column;
         }
-        
+
         .product-title {
             font-size: 2.2rem;
             font-weight: 800;
@@ -60,7 +80,7 @@
             margin: 0 0 10px 0;
             line-height: 1.2;
         }
-        
+
         .product-price {
             font-size: 1.8rem;
             color: var(--brand-color);
@@ -70,7 +90,7 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         /* Information Tabs / Sections */
         .info-box {
             background: #fcfcfc;
@@ -79,15 +99,28 @@
             padding: 20px;
             margin-bottom: 30px;
         }
+
         .product-description {
             line-height: 1.6;
             color: var(--text-light);
             font-size: 1rem;
         }
-        .product-description h5, .product-description h6 { color: var(--text-dark); margin-top: 0; }
-        .product-description ul { padding-left: 20px; margin-bottom: 0; }
-        .product-description li { margin-bottom: 5px; }
-        
+
+        .product-description h5,
+        .product-description h6 {
+            color: var(--text-dark);
+            margin-top: 0;
+        }
+
+        .product-description ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .product-description li {
+            margin-bottom: 5px;
+        }
+
         /* Actions */
         .action-group {
             margin-top: auto;
@@ -95,7 +128,7 @@
             gap: 15px;
             flex-wrap: wrap;
         }
-        
+
         .btn-buy {
             background: linear-gradient(135deg, #2CAC64 0%, #1e8e4e 100%);
             color: white;
@@ -114,8 +147,12 @@
             align-items: center;
             gap: 8px;
         }
-        .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(44, 172, 100, 0.4); }
-        
+
+        .btn-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 172, 100, 0.4);
+        }
+
         .btn-secondary {
             background: white;
             color: #555;
@@ -126,17 +163,38 @@
             font-weight: 600;
             transition: all 0.3s;
         }
-        .btn-secondary:hover { border-color: #333; color: #333; background: #f9f9f9; }
-        
+
+        .btn-secondary:hover {
+            border-color: #333;
+            color: #333;
+            background: #f9f9f9;
+        }
+
         @media (max-width: 900px) {
-            .product-card { grid-template-columns: 1fr; }
-            .product-image::after { display: none; }
-            .product-image { padding: 20px; border-bottom: 1px solid #f0f0f0; }
-            .product-details { padding: 25px; }
-            .product-title { font-size: 1.8rem; }
+            .product-card {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image::after {
+                display: none;
+            }
+
+            .product-image {
+                padding: 20px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .product-details {
+                padding: 25px;
+            }
+
+            .product-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="product-card">
@@ -146,21 +204,24 @@
         <div class="product-details">
             <h1 class="product-title">Vita Flora</h1>
             <div class="product-price">$430.00 MXN</div>
-            
+
             <div class="info-box">
                 <div class="product-description">
-                    <p>Descubre los beneficios de este producto en nuestra web oficial. Calidad VitamindOrgan garantizada.</p>
+                    <p>Descubre los beneficios de este producto en nuestra web oficial. Calidad VitamindOrgan
+                        garantizada.</p>
                 </div>
             </div>
-            
+
             <div class="action-group">
-                <a href="https://vitamindorgan.com/?add-to-cart=6966" class="btn-buy">
-                    <span>🛒 Añadir al Carrito</span>
-                </a>
-                <a href="https://vitamindorgan.com/producto/vitaflora/" target="_blank" class="btn-secondary">Más Información ℹ️</a>
+                <span class="btn-buy" style="background: #999; cursor: not-allowed; box-shadow: none;">
+                    <span>🚫 AGOTADO</span>
+                </span>
+                <a href="https://vitamindorgan.com/producto/vitaflora/" target="_blank" class="btn-secondary">Más
+                    Información ℹ️</a>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>
